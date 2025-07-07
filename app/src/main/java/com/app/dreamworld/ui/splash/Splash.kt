@@ -38,8 +38,9 @@ class Splash:AppCompatActivity() {
                         Login::class.java
                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
+                finish()
             }
-            finish()
+
         }
     }
 

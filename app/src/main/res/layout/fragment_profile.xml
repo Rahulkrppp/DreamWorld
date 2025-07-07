@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.ScannerFragment">
+    tools:context=".ui.profile.ScannerFragment">
 
     <TextView
         android:id="@+id/title"
@@ -45,7 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/UserName"
         tools:text="Nisarg Trivedi"
-        android:text="Nisarg"
         android:textSize="@dimen/_13ssp"
         android:fontFamily="@font/monda"
         android:gravity="center|start"
