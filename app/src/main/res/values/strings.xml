@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">DreamWorld</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Scanner</string>
+    <string name="title_notifications">Profile</string>
+    <string name="todo">TODO</string>
+    <string name="join_the_smarter_way_to_dream_world_with_lots_of_benefits">Join the Smarter way to dream world with lots of benefits</string>
+    <string name="enter_email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="go">Go</string>
+    <string name="enter_your_current_register_email_we_will_send_new_password_on_email">Enter your current register email we will send new password on email</string>
+    <string name="event">Event</string>
+    <string name="upcoming_event">Upcoming Event</string>
+    <string name="completed_event">Completed Event</string>
+    <string name="_1">1</string>
+    <string name="customer_registered">Customer Registered</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="click_below_button_to_scan_qr_tickets">Click below button to scan QR Tickets</string>
+    <string name="scanner">Scanner</string>
+    <string name="or_nsearch_ticket_by_code">OR\nSearch Ticket By Code</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="search">Search</string>
+    <string name="sell_ticket">Sell Ticket</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="whatsapp_mobile_number">WhatsApp Mobile Number</string>
+    <string name="select_show">Select Show</string>
+    <string name="event_title">Event Title</string>
+    <string name="number_of_passes">Number of Passes</string>
+    <string name="full_name">Full Name</string>
+    <string name="amount">Amount</string>
+    <string name="save">Save</string>
+    <string name="phone">Phone</string>
+    <string name="branch_name">Branch Name</string>
+    <string name="logout">Logout</string>
+    <string name="person_capacity">Person Capacity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="event_detail">Event Detail</string>
+    <string name="search_by_code">Search By Code</string>
+</resources>

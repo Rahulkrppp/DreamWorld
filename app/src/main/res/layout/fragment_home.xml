@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_100sdp" />
+
+    <TextView
+        android:id="@+id/tvCurrentUser"
+        android:fontFamily="@font/goldman_regular"
+        android:paddingHorizontal="@dimen/_30sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="@color/white"
+        android:text="Nisarg"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvBranch"
+        android:fontFamily="@font/monda"
+        android:paddingHorizontal="@dimen/_30sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/white"
+        android:text="Maninagar"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentUser"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCount"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvBranch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvEventCount"
+                android:fontFamily="@font/goldman_bold"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:text="@string/_1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvEvent"
+                app:layout_constraintStart_toStartOf="@id/tvEvent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvEvent"
+                android:fontFamily="@font/monda"
+                android:gravity="center"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/black"
+                android:text="@string/upcoming_event"
+                app:layout_constraintEnd_toEndOf="@id/tvMiddle"
+                app:layout_constraintTop_toBottomOf="@id/tvEventCount"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMiddle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp" />
+
+
+            <TextView
+                android:id="@+id/tvCompletedEventCount"
+                android:fontFamily="@font/goldman_bold"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:text="@string/_1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvCompletedEvent"
+                app:layout_constraintStart_toStartOf="@id/tvCompletedEvent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/tvCompletedEvent"
+                android:fontFamily="@font/monda"
+                android:gravity="center"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/black"
+                android:text="@string/completed_event"
+                app:layout_constraintTop_toBottomOf="@id/tvCompletedEventCount"
+                app:layout_constraintStart_toEndOf="@id/tvMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:layout_marginTop="-40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_marginStart="@dimen/_20sdp"
+            android:id="@+id/title"
+            android:fontFamily="@font/monda"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"
+            android:text="Events"
+            android:layout_marginTop="@dimen/_50sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_event"
+            android:layout_marginTop="@dimen/_5sdp"
+            tools:listitem="@layout/row_event"
+            tools:itemCount="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:paddingStart="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_100sdp"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

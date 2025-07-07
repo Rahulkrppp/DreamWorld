@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.app.dreamworld.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/openSellTicketScreenFromHome"
+            app:destination="@id/navigation_sell_ticket" />
+
+        <action
+
+            android:id="@+id/openEventDetails"
+            app:destination="@id/event_detail" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_event"
+        android:name="com.app.dreamworld.ui.dashboard.DashboardFragment"
+        android:label="@string/event"
+        tools:layout="@layout/fragment_dashboard"
+        >
+        <action
+            android:id="@+id/openSellTicketScreenFromEvents"
+            app:destination="@id/navigation_sell_ticket" />
+
+        <action
+
+            android:id="@+id/openEventDetailsList"
+            app:destination="@id/event_detail" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.app.dreamworld.ui.scanner.ScannerFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_scanner" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.app.dreamworld.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_sell_ticket"
+        android:name="com.app.dreamworld.ui.dashboard.SellEventTicketFragment"
+        android:label="@string/sell_ticket"
+        tools:layout="@layout/fragment_customer">
+
+        <argument
+            app:nullable="true"
+            android:name="event"
+            app:argType="com.app.dreamworld.data.remote.res.Event" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/event_detail"
+        android:name="com.app.dreamworld.ui.eventDetails.EventDetailFragment"
+        android:label="@string/event_detail"
+        tools:layout="@layout/fragment_event_detail">
+    <argument
+        app:nullable="true"
+        android:name="event"
+        app:argType="com.app.dreamworld.data.remote.res.Event" />
+
+        <action
+            android:id="@+id/openAddCustomer"
+            app:destination="@id/navigation_sell_ticket" />
+
+    </fragment>
+
+</navigation>

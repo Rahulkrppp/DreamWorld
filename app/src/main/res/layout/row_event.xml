@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cl_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clipToPadding="true"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:elevation="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_20sdp"
+    android:background="@drawable/bg_event_ten_r"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgEvent"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/event_dummy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp" />
+    <TextView
+        android:layout_marginTop="@dimen/_3sdp"
+        android:id="@+id/tvEventTitle"
+        android:fontFamily="@font/monda"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/black"
+        android:text="@string/upcoming_event"
+        app:layout_constraintTop_toBottomOf="@id/imgEvent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvPersonCount"
+        android:paddingHorizontal="@dimen/_2sdp"
+        android:fontFamily="@font/goldman_regular"
+        android:gravity="center"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/black"
+        android:text="@string/_1"
+        android:alpha="0.8"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/tvEventTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:gravity="center"
+        android:fontFamily="@font/goldman_regular"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:alpha="0.4"
+        android:text="@string/person_capacity"
+        app:layout_constraintTop_toBottomOf="@id/tvEventTitle"
+        app:layout_constraintStart_toEndOf="@id/tvPersonCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
