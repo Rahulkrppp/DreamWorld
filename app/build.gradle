@@ -99,8 +99,11 @@ dependencies {
 
 // quickie bundled: For QR Code Scan
     implementation("io.github.g00fy2.quickie:quickie-bundled:1.6.0")
+
 //swiperefreshlayout
-    implementation ('androidx.swiperefreshlayout:swiperefreshlayout:1.1.0')
+
+//    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
 
 
 }

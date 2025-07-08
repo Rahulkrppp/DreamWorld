@@ -68,10 +68,10 @@ class DashboardFragment :
     }
 
     override fun setClickListener() {
-        binding?.swipeRefresh?.setOnRefreshListener {
-            binding?.swipeRefresh?.isRefreshing=false
-            viewModel.callEventApi()
-        }
+//        binding?.swipeRefresh?.setOnRefreshListener {
+//            binding?.swipeRefresh?.isRefreshing=false
+//            viewModel.callEventApi()
+//        }
     }
 
 

@@ -18,5 +18,6 @@ interface AuthenticationRepoHelper {
     suspend fun callShowBaseEventApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
     suspend fun callBookingTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
     suspend fun callScannerTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
+    suspend fun callUpdateScanTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
 }
 

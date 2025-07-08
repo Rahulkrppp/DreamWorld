@@ -38,6 +38,10 @@ interface ApiService {
     @POST("index.php?action=bookTicket")
     suspend fun callBookingTicketApi(@FieldMap params: HashMap<String, String>): Response<BaseResponse>
 
+    @FormUrlEncoded
+    @POST("index.php?action=updateScannedTickets")
+    suspend fun callUpdateScanTicketApi(@FieldMap params: HashMap<String, String>): Response<BaseResponse>
+
 
 //
 //    @POST("userApi/auth/verifyTwoFactorAuthCode")
