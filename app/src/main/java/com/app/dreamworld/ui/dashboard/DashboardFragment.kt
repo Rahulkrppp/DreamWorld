@@ -35,7 +35,8 @@ class DashboardFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (isFirstTimeLoad){
-            viewModel.callEventApi()
+
+            viewModel.callEventApi(requireContext())
             initRecyclerView()
             setData()
         }

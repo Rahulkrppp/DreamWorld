@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/rlMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-        android:gravity="center">
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/iv_no_data"
@@ -22,8 +23,10 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_below="@id/iv_no_data"
             android:gravity="center"
+            android:text="No Internet"
+            android:fontFamily="@font/goldman_bold"
             android:textColor="?editTextColor"
-            android:textSize="22sp" />
+            android:textSize="25sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtNo"
@@ -64,7 +67,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                app:fontFamily="@font/goldman_bold"
+
                 android:padding="15dp"
-                android:textSize="15sp" />
+                android:textSize="30sp" />
         </LinearLayout>
     </RelativeLayout>

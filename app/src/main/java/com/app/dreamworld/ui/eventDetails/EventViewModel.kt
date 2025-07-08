@@ -14,6 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class EventViewModel  @Inject constructor(private val authenticationRepo: AuthenticationRepository) : BaseViewModel() {
      var scanTicketLiveData = SingleLiveData<DataClass>()
+     var updatescanTicketLiveData = SingleLiveData<DataClass>()
 
     fun callScannerTicketApi(ticketID:String) {
         viewModelScope.launch {
@@ -44,7 +45,7 @@ class EventViewModel  @Inject constructor(private val authenticationRepo: Authen
             try {
                 authenticationRepo.callUpdateScanTicketApi(param, onResult = {
                     invalidateLoading(false)
-                    scanTicketLiveData.postValue(it.data)
+                    updatescanTicketLiveData.postValue(it.data)
                     //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
                     //}
                 }, onFailure = {

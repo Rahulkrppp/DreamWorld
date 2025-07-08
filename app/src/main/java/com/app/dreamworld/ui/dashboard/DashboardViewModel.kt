@@ -1,5 +1,6 @@
 package com.app.dreamworld.ui.dashboard
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +9,9 @@ import com.app.dreamworld.data.remote.di.DataClass
 import com.app.dreamworld.data.remote.di.helper.AuthenticationRepoHelper
 import com.app.dreamworld.ui.auth.AuthenticationRepository
 import com.app.dreamworld.ui.core.BaseViewModel
+import com.app.dreamworld.util.extension.isNetworkAvailable
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import de.fast2work.mobility.utility.helper.SingleLiveData
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,20 +28,23 @@ class DashboardViewModel @Inject constructor(private val authenticationRepo: Aut
     }
     val text: LiveData<String> = _text
 
-    fun callEventApi() {
-        viewModelScope.launch {
-            invalidateLoading(true)
-            try {
-                authenticationRepo.callEventApi( onResult = {
-                    invalidateLoading(false)
-                    eventLiveData.postValue(it.data)
-                    //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
-                    //}
-                }, onFailure = {
-                    invalidateLoading(false)
-                    errorLiveData.postValue(it)
-                })} catch (e:Exception){
-                print(e)
+    fun callEventApi(context: Context) {
+        if (context.applicationContext.isNetworkAvailable()) {
+            viewModelScope.launch {
+                invalidateLoading(true)
+                try {
+                    authenticationRepo.callEventApi(onResult = {
+                        invalidateLoading(false)
+                        eventLiveData.postValue(it.data)
+                        //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
+                        //}
+                    }, onFailure = {
+                        invalidateLoading(false)
+                        errorLiveData.postValue(it)
+                    })
+                } catch (e: Exception) {
+                    print(e)
+                }
             }
         }
     }
