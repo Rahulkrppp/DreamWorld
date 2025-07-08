@@ -2,13 +2,9 @@ package com.app.dreamworld.ui.auth
 
 import com.app.dreamworld.data.remote.ApiService
 import com.app.dreamworld.data.remote.cit.HBSuccessCallback
-import com.app.dreamworld.data.remote.cit.WSObjectResponse
-import com.app.dreamworld.data.remote.di.LoginResponse
+import com.app.dreamworld.data.remote.di.BaseResponse
 import com.app.dreamworld.data.remote.di.helper.AuthenticationRepoHelper
-import com.app.dreamworld.data.remote.req.LoginRequest
-import com.app.dreamworld.data.remote.res.User
 import com.app.dreamworld.ui.core.BaseRepository
-import de.fast2work.mobility.data.remote.cit.HBBaseResponse
 import javax.inject.Inject
 
 /**
@@ -23,13 +19,13 @@ class AuthenticationRepository @Inject constructor(private val apiService: ApiSe
      */
     override suspend fun callLoginApi(
         params: HashMap<String, String>,
-        onResult: (response: LoginResponse) -> Unit,
+        onResult: (response: BaseResponse) -> Unit,
         onFailure: (message: String) -> Unit,
     ) {
         try {
             safeApiCall(apiService.callLoginApi(params), object :
-                HBSuccessCallback<LoginResponse> {
-                override fun onSuccess(response: LoginResponse) {
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
                     if (response.success==true) {
                         onResult(response)
                     } else {
@@ -49,13 +45,142 @@ class AuthenticationRepository @Inject constructor(private val apiService: ApiSe
 
 
     override suspend fun callEventApi(
-        onResult: (response: LoginResponse) -> Unit,
+        onResult: (response: BaseResponse) -> Unit,
         onFailure: (message: String) -> Unit
     ) {
         try {
             safeApiCall(apiService.callEventApi(), object :
-                HBSuccessCallback<LoginResponse> {
-                override fun onSuccess(response: LoginResponse) {
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callEventCustomerApi(
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callEventCustomerApi(), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callCustomerByEventApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callCustomerByEventApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callShowBaseEventApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callShowBaseEventApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callBookingTicketApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callBookingTicketApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callScannerTicketApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callScannerTicketApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
                     if (response.success==true) {
                         onResult(response)
                     } else {

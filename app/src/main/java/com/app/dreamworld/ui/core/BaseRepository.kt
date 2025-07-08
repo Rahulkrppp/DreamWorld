@@ -1,13 +1,12 @@
 package com.app.dreamworld.ui.core
 
-import android.util.Log
 import androidx.core.content.ContextCompat
 import com.app.dreamworld.data.remote.cit.HBSuccessCallback
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import de.fast2work.mobility.data.remote.cit.HBBaseResponse
 import com.app.dreamworld.data.remote.cit.RetrofitCallback
-import com.app.dreamworld.data.remote.di.LoginResponse
+import com.app.dreamworld.data.remote.di.BaseResponse
 import com.app.dreamworld.util.extension.isNetworkAvailable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -51,19 +50,10 @@ abstract class BaseRepository {
                             val body = result.body()
                             if (body != null) {
                                 when (body) {
-                                    is LoginResponse ->{
+                                    is BaseResponse ->{
                                         retrofitCallback.onSuccess(body)
                                     }
 
-                                    is HBBaseResponse -> {
-                                        when ((body as HBBaseResponse).responseCode) {
-                                            HBBaseResponse.SUCCESS -> retrofitCallback.onSuccess(body)
-                                            HBBaseResponse.ERROR -> retrofitCallback.onFailure(
-                                                (body as HBBaseResponse).responseCode, (body as HBBaseResponse).responseMessage)
-                                            else -> (retrofitCallback as HBSuccessCallback<*>).onFailure(
-                                                (body as HBBaseResponse).responseCode, (body as HBBaseResponse).responseMessage)
-                                        }
-                                    }
                                     is JsonElement -> {
                                         retrofitCallback.onSuccess(body)
                                     }

@@ -1,10 +1,14 @@
 package com.app.dreamworld.data.remote.di
 
+import com.app.dreamworld.data.remote.res.CustomerDetailsRes
 import com.app.dreamworld.data.remote.res.Event
+import com.app.dreamworld.data.remote.res.EventBookingList
+import com.app.dreamworld.data.remote.res.ShowsDetailsRes
+import com.app.dreamworld.data.remote.res.TicketBookingDetailsReq
 import com.app.dreamworld.data.remote.res.User
 import com.google.gson.annotations.SerializedName
 
-class LoginResponse {
+class BaseResponse {
 
     @SerializedName("data")
     var data:DataClass? = null
@@ -23,4 +27,16 @@ class DataClass {
 
     @SerializedName("events")
     var events:ArrayList<Event> = arrayListOf()
+
+    @SerializedName("event_booking_details")
+    var eventBookingDetails:ArrayList<EventBookingList> = arrayListOf()
+
+    @SerializedName("customer_details")
+    var customerDetails:ArrayList<CustomerDetailsRes> = arrayListOf()
+
+    @SerializedName("shows_details")
+    var showsDetails:ArrayList<ShowsDetailsRes> = arrayListOf()
+
+    @SerializedName("ticket_booking_details")
+    var ticketBookingDetails:ArrayList<TicketBookingDetailsReq> = arrayListOf()
 }

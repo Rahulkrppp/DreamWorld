@@ -48,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edtEmail"
         android:id="@+id/edtPassword"
+        android:paddingHorizontal="@dimen/_10sdp"
         style="@style/editTextStyle"
         android:hint="@string/password"
         android:inputType="textPassword"

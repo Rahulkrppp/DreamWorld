@@ -120,6 +120,7 @@
             android:imeOptions="actionNext"
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
         </com.google.android.material.textfield.TextInputEditText>
@@ -144,6 +145,7 @@
             android:imeOptions="actionNext"
             android:hint="@string/number_of_passes"
             android:inputType="number"
+            android:maxLength="3"
             android:digits="0123456789"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">

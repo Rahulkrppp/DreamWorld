@@ -27,11 +27,15 @@ import kotlin.math.log
 
 
 class EventDetailFragment :
-    BaseVMBindingFragment<FragmentEventDetailBinding, DashboardViewModel>(DashboardViewModel::class.java) {
+    BaseVMBindingFragment<FragmentEventDetailBinding, EventViewModel>(EventViewModel::class.java) {
     val args: EventDetailFragmentArgs by navArgs()
+
     private val scanQrCode = registerForActivityResult(ScanQRCode()) {
         when (it) {
             is QRResult.QRSuccess -> {
+                Log.e("", "scanResult===:${it.content.rawValue} ", )
+                val action = EventDetailFragmentDirections.openBookingScanTicket(it.content.rawValue)
+                findNavController().navigate(action)
 
             }
             QRResult.QRUserCanceled -> "userCanceled"

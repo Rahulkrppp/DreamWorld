@@ -3,6 +3,7 @@ package com.app.dreamworld
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,17 +29,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity :
     BaseVMBindingActivity<ActivityMainBinding, LoginViewModel>(LoginViewModel::class.java) {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindingView(ActivityMainBinding.inflate(layoutInflater))
-
-
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        // Set the status bar color
-        window.statusBarColor = Color.BLACK
 
         // Set white icons (lightStatusBar = false)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
@@ -44,7 +39,6 @@ class MainActivity :
             // API level > 14
             // Your logic here
             {
-            showToast("${Build.VERSION.SDK_INT}")
         // Apply top padding for system bar
             ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
                 val statusBars = insets.getInsets(WindowInsetsCompat.Type.statusBars())
@@ -53,6 +47,7 @@ class MainActivity :
                 insets
             }
     }
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)

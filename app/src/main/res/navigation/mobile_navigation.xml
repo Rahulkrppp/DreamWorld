@@ -34,7 +34,6 @@
             app:destination="@id/navigation_sell_ticket" />
 
         <action
-
             android:id="@+id/openEventDetailsList"
             app:destination="@id/event_detail" />
 
@@ -43,9 +42,15 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.app.dreamworld.ui.scanner.ScannerFragment"
+        android:name="com.app.dreamworld.ui.scanner.EventBookingFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_scanner" />
+        tools:layout="@layout/fragment_scanner" >
+
+        <action
+            android:id="@+id/openMemberList"
+            app:destination="@id/member_List" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -79,6 +84,34 @@
         <action
             android:id="@+id/openAddCustomer"
             app:destination="@id/navigation_sell_ticket" />
+
+        <action
+            android:id="@+id/openBookingScanTicket"
+            app:destination="@id/booking_scan_ticket" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/member_List"
+        android:name="com.app.dreamworld.ui.member.MemberListFragment"
+        tools:layout="@layout/fragment_member_list">
+
+        <argument
+            app:nullable="true"
+            android:name="event_booking"
+            app:argType="com.app.dreamworld.data.remote.res.EventBookingList" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/booking_scan_ticket"
+        android:name="com.app.dreamworld.ui.booking.BookingScanFragment"
+        tools:layout="@layout/fragment_booking_scan">
+
+        <argument
+            app:nullable="true"
+            android:name="booking_scan_ticket"
+            app:argType="string" />
 
     </fragment>
 

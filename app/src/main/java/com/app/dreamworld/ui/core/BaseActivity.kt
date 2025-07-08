@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.app.dreamworld.util.SNACKBAR_TYPE_SUCCESS
 import com.app.dreamworld.util.dialog.progress.ProgressDialogFragment
+import com.app.dreamworld.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Singleton
 
@@ -111,7 +113,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param message
      */
     fun showErrorMessage(message: String) {
-        //message.showSnackBar(this)
+        message.showSnackBar(this)
     }
 
     /**
@@ -120,7 +122,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param message
      */
     fun showSuccessMessage(message: String) {
-       // message.showSnackBar(this, SNACKBAR_TYPE_SUCCESS)
+        message.showSnackBar(this, SNACKBAR_TYPE_SUCCESS)
     }
 
     /**

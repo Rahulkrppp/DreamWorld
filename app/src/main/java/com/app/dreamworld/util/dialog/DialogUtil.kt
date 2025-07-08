@@ -7,6 +7,8 @@ import android.text.Html
 import android.text.Spanned
 import android.util.Log
 import android.view.*
+import com.app.dreamworld.databinding.DialogCommonLayoutBinding
+import com.app.dreamworld.util.helper.DialogFragmentHelper
 
 import java.util.*
 
@@ -37,87 +39,81 @@ object DialogUtil {
     }
 
 
-//    fun showDialog(supportFragmentManager: FragmentManager, title: String? = null, message: String? = null, positiveButtonText: String? = null, negativeButtonText: String? = null, il: IL? = null, image: Int? = null, isCancelShow: Boolean = false, isTitleShow: Int = View.VISIBLE, isMsgShow: Int = View.VISIBLE) {
-//
-//        DialogFragmentHelper.with(inflate = DialogCommonLayoutBinding::inflate, isCancellable = false) { binding, context, dialog ->
-//
-//            with(binding) {
-//
-//                ivImage.setTint(BaseApplication.tenantSharedPreference.getTenantPrefModel(EasyPref.TENANT_DATA, TenantInfoModel::class.java)?.brandingInfo?.primaryColor.toString())
-//                tvOk.backgroundColorTint(BaseApplication.tenantSharedPreference.getTenantPrefModel(EasyPref.TENANT_DATA, TenantInfoModel::class.java)?.brandingInfo?.primaryColor)
-//                tvYes.backgroundColorTint(BaseApplication.tenantSharedPreference.getTenantPrefModel(EasyPref.TENANT_DATA, TenantInfoModel::class.java)?.brandingInfo?.primaryColor)
-//                tvNo.buttonTextColor(BaseApplication.tenantSharedPreference.getTenantPrefModel(EasyPref.TENANT_DATA, TenantInfoModel::class.java)?.brandingInfo?.primaryColor)
-//                tvNo.backgroundColorTintForAlpha(BaseApplication.tenantSharedPreference.getTenantPrefModel(EasyPref.TENANT_DATA, TenantInfoModel::class.java)?.brandingInfo?.primaryColor)
-//
-//                if (title.isNullOrEmpty()) {
-//                    tvTitle.visibility = View.GONE
-//                } else {
-//                    tvTitle.visibility = View.VISIBLE
-//                    tvTitle.text = title
-//                }
-//
-//                if (message.isNullOrEmpty()) {
-//                    tvMessage.visibility = View.GONE
-//                } else {
-//                    tvMessage.visibility = View.VISIBLE
-//                    tvMessage.text = message
-//                }
-//
-//                if (!positiveButtonText.isNullOrEmpty() && !negativeButtonText.isNullOrEmpty()) {
-//                    tvYes.text = positiveButtonText
-//                    tvNo.text = negativeButtonText
-//
-//                    tvYes.visibility = View.VISIBLE
-//                    tvNo.visibility = View.VISIBLE
-//                    tvOk.visibility = View.GONE
-//                } else {
-//                    if (!positiveButtonText.isNullOrEmpty()) {
-//                        tvOk.text = positiveButtonText
-//                    }
-//
-//                    tvYes.visibility = View.GONE
-//                    tvNo.visibility = View.GONE
-//                    tvOk.visibility = View.VISIBLE
-//                }
-//
-//                if (image == null) {
-//                    ivImage.visibility = View.GONE
-//                } else {
-//                    ivImage.visibility = View.VISIBLE
-//                    ivImage.setImageResource(image)
-//                }
-//
-//                if (isCancelShow) {
-//                    ivClose.visibility = View.VISIBLE
-//                } else {
-//                    ivClose.visibility = View.GONE
-//                }
-//                tvTitle.visibility = isTitleShow
-//                tvMessage.visibility = isMsgShow
-//                tvYes.setOnClickListener {
-//                    il?.onSuccess()
-//                    dialog.dismiss()
-//                }
-//                tvNo.setOnClickListener {
-//                    il?.onCancel(false)
-//                    dialog.dismiss()
-//                }
-//                tvOk.setOnClickListener {
-//                    il?.onSuccess()
-//                    dialog.dismiss()
-//                }
-//                ivClose.setOnClickListener {
-//                    il?.onCancel(true)
-//                    dialog.dismiss()
-//                }
-//
-//
-//            }
-//
-//        }.apply { show(supportFragmentManager, "alert_dialog_token_expire") }
-//
-//    }
-//
+    fun showDialog(supportFragmentManager: androidx.fragment.app.FragmentManager, title: String? = null, message: String? = null, positiveButtonText: String? = null, negativeButtonText: String? = null, il: IL? = null, image: Int? = null, isCancelShow: Boolean = false, isTitleShow: Int = View.VISIBLE, isMsgShow: Int = View.VISIBLE) {
+
+        DialogFragmentHelper.with(inflate = DialogCommonLayoutBinding::inflate, isCancellable = false) { binding, context, dialog ->
+
+            with(binding) {
+
+                if (title.isNullOrEmpty()) {
+                    tvTitle.visibility = View.GONE
+                } else {
+                    tvTitle.visibility = View.VISIBLE
+                    tvTitle.text = title
+                }
+
+                if (message.isNullOrEmpty()) {
+                    tvMessage.visibility = View.GONE
+                } else {
+                    tvMessage.visibility = View.VISIBLE
+                    tvMessage.text = message
+                }
+
+                if (!positiveButtonText.isNullOrEmpty() && !negativeButtonText.isNullOrEmpty()) {
+                    tvYes.text = positiveButtonText
+                    tvNo.text = negativeButtonText
+
+                    tvYes.visibility = View.VISIBLE
+                    tvNo.visibility = View.VISIBLE
+                    tvOk.visibility = View.GONE
+                } else {
+                    if (!positiveButtonText.isNullOrEmpty()) {
+                        tvOk.text = positiveButtonText
+                    }
+
+                    tvYes.visibility = View.GONE
+                    tvNo.visibility = View.GONE
+                    tvOk.visibility = View.VISIBLE
+                }
+
+                if (image == null) {
+                    ivImage.visibility = View.GONE
+                } else {
+                    ivImage.visibility = View.VISIBLE
+                    ivImage.setImageResource(image)
+                }
+
+                if (isCancelShow) {
+                    ivClose.visibility = View.VISIBLE
+                } else {
+                    ivClose.visibility = View.GONE
+                }
+                tvTitle.visibility = isTitleShow
+                tvMessage.visibility = isMsgShow
+                tvYes.setOnClickListener {
+                    il?.onSuccess()
+                    dialog.dismiss()
+                }
+                tvNo.setOnClickListener {
+                    il?.onCancel(false)
+                    dialog.dismiss()
+                }
+                tvOk.setOnClickListener {
+                    il?.onSuccess()
+                    dialog.dismiss()
+                }
+                ivClose.setOnClickListener {
+                    il?.onCancel(true)
+                    dialog.dismiss()
+                }
+
+
+            }
+
+        }.apply { show(supportFragmentManager, "alert_dialog_token_expire") }
+
+    }
+
 
     @SuppressLint("ClickableViewAccessibility")
     fun Dialog?.addTouchEvent() {

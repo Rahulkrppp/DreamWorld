@@ -17,6 +17,8 @@ import javax.inject.Inject
 class DashboardViewModel @Inject constructor(private val authenticationRepo: AuthenticationRepository) : BaseViewModel() {
 
     var eventLiveData = SingleLiveData<DataClass>()
+    var showBaseEventLiveData = SingleLiveData<DataClass>()
+    var showBookingTicketEventLiveData = SingleLiveData<DataClass>()
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
@@ -40,4 +42,51 @@ class DashboardViewModel @Inject constructor(private val authenticationRepo: Aut
             }
         }
     }
+
+    fun callShowBaseEventApi(eventId:String) {
+        viewModelScope.launch {
+            val param = HashMap<String,String>()
+            param["eventID"] =eventId
+            invalidateLoading(true)
+            try {
+                authenticationRepo.callShowBaseEventApi(param, onResult = {
+                    invalidateLoading(false)
+                    showBaseEventLiveData.postValue(it.data)
+                    //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
+                    //}
+                }, onFailure = {
+                    invalidateLoading(false)
+                    errorLiveData.postValue(it)
+                })} catch (e:Exception){
+                print(e)
+            }
+        }
+    }
+
+    fun callBookingTicketApi(name:String,mobile:String,show:String,numberOfPass:String,amount:String,event:String,staffId:String) {
+        viewModelScope.launch {
+            val param = HashMap<String,String>()
+            param["name"] =name
+            param["mobile"] =mobile
+            param["show"] =show
+            param["number_of_pass"] =numberOfPass
+            param["amount"] =amount
+            param["event"] =event
+            param["staff_id"] =staffId
+            invalidateLoading(true)
+            try {
+                authenticationRepo.callBookingTicketApi(param, onResult = {
+                    invalidateLoading(false)
+                    showBookingTicketEventLiveData.postValue(it.data)
+                    //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
+                    //}
+                }, onFailure = {
+                    invalidateLoading(false)
+                    errorLiveData.postValue(it)
+                })} catch (e:Exception){
+                print(e)
+            }
+        }
+    }
+
 }

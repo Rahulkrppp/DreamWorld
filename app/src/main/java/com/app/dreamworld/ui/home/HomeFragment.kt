@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -23,7 +24,7 @@ import com.app.dreamworld.util.clickWithDebounce
 import com.app.dreamworld.util.preference.EasyPref
 
 class HomeFragment :
-    BaseVMBindingFragment<FragmentHomeBinding, DashboardViewModel>(DashboardViewModel::class.java) {
+    BaseVMBindingFragment<FragmentHomeBinding, HomeViewModel>(HomeViewModel::class.java) {
 
 
     // This property is only valid between onCreateView and
@@ -51,6 +52,13 @@ class HomeFragment :
                 }else{
                     completeEvent++
                 }
+            }
+            if (eventList.isEmpty()){
+                binding!!.tvNoData.isVisible=true
+                binding!!.rvHomeEvent.isVisible=false
+            }else{
+                binding!!.tvNoData.isVisible=false
+                binding!!.rvHomeEvent.isVisible=true
             }
             eventAdapter?.notifyDataSetChanged()
             binding!!.tvEventCount.text=upcomingEvent.toString()

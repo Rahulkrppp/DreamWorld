@@ -278,7 +278,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/goldman_bold"
                     android:imeOptions="actionDone"
-                    android:text="Add costumer"
+                    android:text="@string/add_customer"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_13ssp"
                     app:backgroundTint="@color/black"

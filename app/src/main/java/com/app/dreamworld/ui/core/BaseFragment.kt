@@ -6,7 +6,10 @@ import android.os.SystemClock
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.app.dreamworld.util.SNACKBAR_TYPE_ALERT
+import com.app.dreamworld.util.SNACKBAR_TYPE_SUCCESS
 import com.app.dreamworld.util.dialog.progress.ProgressDialogFragment
+import com.app.dreamworld.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -59,7 +62,7 @@ abstract class BaseFragment : Fragment() {
      * @param message
      */
     fun showErrorMessage(message: String) {
-        //message.showSnackBar(requireActivity())
+        message.showSnackBar(requireActivity())
     }
 
     /**
@@ -68,7 +71,7 @@ abstract class BaseFragment : Fragment() {
      * @param message
      */
     fun showSuccessMessage(message: String) {
-        //message.showSnackBar(requireActivity(), SNACKBAR_TYPE_SUCCESS)
+        message.showSnackBar(requireActivity(), SNACKBAR_TYPE_SUCCESS)
     }
 
     /**
@@ -77,7 +80,7 @@ abstract class BaseFragment : Fragment() {
      * @param message
      */
     fun showAlertMessage(message: String) {
-        // message.showSnackBar(requireActivity(), SNACKBAR_TYPE_ALERT)
+         message.showSnackBar(requireActivity(), SNACKBAR_TYPE_ALERT)
     }
 
     /**
