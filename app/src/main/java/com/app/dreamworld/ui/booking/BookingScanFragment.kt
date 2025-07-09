@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,17 +47,27 @@ class BookingScanFragment :
     }
     override fun attachObservers() {
         viewModel.scanTicketLiveData.observe(this){
-            ticketBookingDetailsReq.clear()
-            ticketBookingDetailsReq.addAll(it.ticketBookingDetails)
-            ticketBookingDetailsReq.forEachIndexed { index, ticketBookingDetailsReq ->
-                ticketBookingDetailsReq.selected=true
+
+
+                ticketBookingDetailsReq.clear()
+                ticketBookingDetailsReq.addAll(it.ticketBookingDetails)
+                ticketBookingDetailsReq.forEachIndexed { index, ticketBookingDetailsReq ->
+                    ticketBookingDetailsReq.selected = true
+                }
+                Log.e("", "attachObservers===========:${it.ticketBookingDetails} ",)
+                ticketScanBookingAapter?.notifyDataSetChanged()
+                setData()
+            if (ticketBookingDetailsReq.isNotEmpty()) {
+                binding!!.tvNoData.isVisible=false
+                binding!!.llMain.isVisible=true
+            }else{
+                binding!!.tvNoData.isVisible=true
+                binding!!.llMain.isVisible=false
             }
-            Log.e("", "attachObservers===========:${it.ticketBookingDetails} ", )
-            ticketScanBookingAapter?.notifyDataSetChanged()
-            setData()
 
         }
         viewModel.updatescanTicketLiveData.observe(this){
+            showSuccessMessage(it.updateBookingDetails.toString())
             findNavController().popBackStack()
         }
     }
@@ -84,20 +95,15 @@ class BookingScanFragment :
 
     override fun setClickListener() {
         binding!!.btnLogin.clickWithDebounce {
-//           val ticketNumbers:ArrayList<String> = arrayListOf()
-//            ticketBookingDetailsReq.forEachIndexed { index, ticketBookingDetailsReq ->
-//                ticketBookingDetailsReq.booking_qr_number
-//                if (ticketBookingDetailsReq.selected){
-//
-//                     ticketNumbers.addAll(listOf(ticketBookingDetailsReq.booking_qr_number.toString()))
-//                }
-//            }
+
            val  ticketNumbers = ticketBookingDetailsReq
                 .filter { it.selected } // ✅ Only selected items
                 .map { it.booking_qr_number.toString() } // ✅ Extract booking_qr_number
-                .joinToString(" , ")
-            //val ticketNumberString = ticketNumbers.joinToString(",")
+                .joinToString(",")
             viewModel.callUpdateScanTicketApi(ticketNumbers)
+        }
+        binding!!.ivBack.clickWithDebounce {
+            findNavController().popBackStack()
         }
 
     }

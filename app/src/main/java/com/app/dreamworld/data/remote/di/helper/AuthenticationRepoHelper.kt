@@ -19,5 +19,7 @@ interface AuthenticationRepoHelper {
     suspend fun callBookingTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
     suspend fun callScannerTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
     suspend fun callUpdateScanTicketApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
+    suspend fun callChangePasswordApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
+    suspend fun callForgotPasswordApi( params: HashMap<String, String>,onResult: (response: BaseResponse) -> Unit, onFailure: (message: String) -> Unit)
 }
 

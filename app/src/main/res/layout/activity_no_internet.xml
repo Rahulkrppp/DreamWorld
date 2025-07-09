@@ -11,6 +11,8 @@
         android:id="@+id/iv_no_data"
         android:layout_width="@dimen/_110sdp"
         android:layout_height="@dimen/_110sdp"
+        android:tint="@color/black"
+        android:src="@drawable/ic_network_signal"
         android:layout_centerHorizontal="true"
         android:scaleType="centerInside"
         />
@@ -36,6 +38,8 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_below="@id/txtNoInternet"
         android:gravity="center"
+        android:fontFamily="@font/monda"
+        android:text="@string/please_check_your_internet_connection_and_try_again"
         android:textColor="?editTextColor"
         android:alpha="0.6"
         android:textSize="22sp" />

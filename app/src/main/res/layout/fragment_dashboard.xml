@@ -7,11 +7,11 @@
     android:background="@color/white"
     tools:context=".ui.dashboard.DashboardFragment">
 
-<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:id="@+id/swipe_refresh"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:layout_height="wrap_content">-->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/swipe_refresh"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -56,6 +56,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

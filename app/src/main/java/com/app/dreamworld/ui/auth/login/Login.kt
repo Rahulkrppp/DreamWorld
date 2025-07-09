@@ -38,6 +38,9 @@ class Login :
             finish()
 
         }
+        viewModel.forgotPasswordLiveData.observe(this){
+            showSuccessMessage(it.forgotPassword.toString())
+        }
     }
 
 
@@ -60,6 +63,11 @@ class Login :
 
         binding.tvForgot.clickWithDebounce {
             val bottomSheet = ForgotPassword()
+            bottomSheet.sendClickListener = {
+                if (isValidForgot(it)){
+                    viewModel.callForgotPasswordApi(it)
+                }
+            }
             bottomSheet.show(supportFragmentManager, "ForgotPassword")
         }
         binding.imgPasswordToggle.clickWithDebounce {
@@ -67,6 +75,18 @@ class Login :
         }
     }
 
+    private fun isValidForgot(email:String): Boolean {
+        if (!email.isValidEmail()) {
+            showErrorMessage(getString(R.string.please_enter_a_valid_email_address))
+            return false
+        }
+        if (email.isEmpty()) {
+            showErrorMessage(getString(R.string.please_enter_the_email_address))
+            return false
+        }
+
+        return true
+    }
     /**
      * This method contains code for all the password show or hide display in our app
      *
@@ -86,7 +106,6 @@ class Login :
     }
 
     private fun isValid(): Boolean {
-
         if (!binding.edtEmail.getTrimText().isValidEmail()) {
             showErrorMessage(getString(R.string.please_enter_a_valid_email_address))
             return false

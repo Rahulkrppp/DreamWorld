@@ -11,6 +11,11 @@ import com.app.dreamworld.data.remote.res.EventBookingList
 import com.app.dreamworld.data.remote.res.TicketBookingDetailsReq
 import com.app.dreamworld.databinding.ItemBookinScanBinding
 import com.app.dreamworld.util.clickWithDebounce
+import com.app.dreamworld.util.extension.DISPLAY_FORMAT
+import com.app.dreamworld.util.extension.SERVER_FORMAT
+import com.app.dreamworld.util.extension.SERVER_INPUT_FORMAT_DD_MM_YYYY_HH_MM
+import com.app.dreamworld.util.extension.SERVER_INPUT_FORMAT_YYYY_MM_DD_HH_MM_SS
+import com.app.dreamworld.util.extension.displayDate
 
 
 class TicketScanBookingAapter(var context: Context, var list: ArrayList<TicketBookingDetailsReq>,
@@ -28,10 +33,14 @@ class TicketScanBookingAapter(var context: Context, var list: ArrayList<TicketBo
             tvTicketCode.text = model.booking_qr_number
             cbSelectCoupon.isChecked = model.selected
             tvMemberShipName.text=model.show_title
-            tvValidDate.text=model.event_date
+            tvValidDate.text=model.event_date?.displayDate(SERVER_FORMAT, DISPLAY_FORMAT)
             if (model.scannedAt?.isNotEmpty() == true){
                 llScannedTime.isVisible=true
-                tvScannedTime.text=model.scannedAt
+                tvScannedTime.text=model.scannedAt?.displayDate(SERVER_INPUT_FORMAT_YYYY_MM_DD_HH_MM_SS,SERVER_INPUT_FORMAT_DD_MM_YYYY_HH_MM)
+            }
+            if (model.scannedUser?.isNotEmpty()==true){
+                llScannedBy.isVisible=true
+                tvScannedBy.text=model.scannedUser
             }
 
 

@@ -70,10 +70,10 @@ class MemberListFragment :
             ivBack.clickWithDebounce {
                 findNavController().popBackStack()
             }
-//            srlRegisterCustomer.setOnRefreshListener {
-//                srlRegisterCustomer.isRefreshing=false
-//                viewModel.callEventCustomerApi(event?.eventId.toString())
-//            }
+            srlRegisterCustomer.setOnRefreshListener {
+                srlRegisterCustomer.isRefreshing=false
+                viewModel.callEventCustomerApi(event?.eventId.toString())
+            }
         }
     }
     private fun initRecyclerView() {

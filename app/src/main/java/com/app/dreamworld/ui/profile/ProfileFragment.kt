@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.app.dreamworld.MainActivity
 import com.app.dreamworld.R
 import com.app.dreamworld.data.remote.res.User
 import com.app.dreamworld.databinding.FragmentProfileBinding
@@ -12,6 +14,7 @@ import com.app.dreamworld.ui.auth.login.Login
 import com.app.dreamworld.ui.core.BaseApplication
 import com.app.dreamworld.ui.core.BaseVMBindingFragment
 import com.app.dreamworld.ui.dashboard.DashboardViewModel
+import com.app.dreamworld.ui.eventDetails.EventDetailFragmentDirections
 import com.app.dreamworld.util.dialog.DialogUtil
 import com.app.dreamworld.util.preference.EasyPref
 
@@ -46,6 +49,11 @@ class ProfileFragment :
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as MainActivity).showBottom()
+    }
+
     override fun setClickListener() {
         binding!!.btnLogout.clickWithDebounce {
 
@@ -63,6 +71,10 @@ class ProfileFragment :
                     }
                 },  isCancelShow = false)
 
+        }
+        binding!!.btnChangePassword.clickWithDebounce {
+            val action = ProfileFragmentDirections.openChangePassword()
+            findNavController().navigate(action)
         }
     }
     override fun onDestroyView() {

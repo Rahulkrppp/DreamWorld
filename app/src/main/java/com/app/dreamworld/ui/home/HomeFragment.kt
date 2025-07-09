@@ -94,7 +94,10 @@ class HomeFragment :
     }
 
     override fun setClickListener() {
-
+        binding!!.swRefresh.setOnRefreshListener {
+            binding!!.swRefresh.isRefreshing=false
+            viewModel.callEventApi()
+        }
     }
 
     override fun onStart() {

@@ -25,6 +25,9 @@ class DataClass {
     @SerializedName("user")
     var data:User? = null
 
+    @SerializedName("booking_details")
+    var bookingDetails:String?=null
+
     @SerializedName("events")
     var events:ArrayList<Event> = arrayListOf()
 
@@ -39,4 +42,10 @@ class DataClass {
 
     @SerializedName("ticket_booking_details")
     var ticketBookingDetails:ArrayList<TicketBookingDetailsReq> = arrayListOf()
+
+    @SerializedName("update_booking_details")
+    var updateBookingDetails:String? = null
+
+    @SerializedName("forgot_password")
+    var forgotPassword:String? = null
 }

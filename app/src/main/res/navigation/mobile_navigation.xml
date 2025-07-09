@@ -56,7 +56,12 @@
         android:id="@+id/navigation_notifications"
         android:name="com.app.dreamworld.ui.profile.ProfileFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/openChangePassword"
+            app:destination="@id/change_password" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_sell_ticket"
@@ -112,6 +117,14 @@
             app:nullable="true"
             android:name="booking_scan_ticket"
             app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/change_password"
+        android:name="com.app.dreamworld.ui.auth.changepassword.ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password">
+
 
     </fragment>
 

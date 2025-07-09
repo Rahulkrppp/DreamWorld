@@ -224,4 +224,56 @@ class AuthenticationRepository @Inject constructor(private val apiService: ApiSe
         }
     }
 
+    override suspend fun callChangePasswordApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callChangePasswordApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
+    override suspend fun callForgotPasswordApi(
+        params: HashMap<String, String>,
+        onResult: (response: BaseResponse) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
+        try {
+            safeApiCall(apiService.callForgotPasswordApi(params), object :
+                HBSuccessCallback<BaseResponse> {
+                override fun onSuccess(response: BaseResponse) {
+                    if (response.success==true) {
+                        onResult(response)
+                    } else {
+                        onFailure(response.msg.toString())
+                    }
+                }
+
+                override fun onFailure(code: Int?, message: String?) {
+                    onFailure(message!!)
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            onFailure(e.message.toString())
+        }
+    }
+
 }

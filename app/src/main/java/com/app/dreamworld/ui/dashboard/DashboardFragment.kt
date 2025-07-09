@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.dreamworld.MainActivity
 import com.app.dreamworld.R
 import com.app.dreamworld.data.remote.res.Event
 import com.app.dreamworld.databinding.FragmentDashboardBinding
@@ -68,11 +69,16 @@ class DashboardFragment :
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as MainActivity).showBottom()
+    }
+
     override fun setClickListener() {
-//        binding?.swipeRefresh?.setOnRefreshListener {
-//            binding?.swipeRefresh?.isRefreshing=false
-//            viewModel.callEventApi()
-//        }
+        binding?.swipeRefresh?.setOnRefreshListener {
+            binding?.swipeRefresh?.isRefreshing=false
+            viewModel.callEventApi(requireActivity())
+        }
     }
 
 

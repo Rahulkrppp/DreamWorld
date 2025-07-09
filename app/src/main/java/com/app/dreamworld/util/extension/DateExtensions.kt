@@ -14,6 +14,7 @@ var MM_FORMAT = SimpleDateFormat("MM", Locale.ENGLISH)
 var MMM_YY = SimpleDateFormat("MMM yy", Locale.getDefault())
 var SERVER_INPUT_FORMAT_TIME = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
 var SERVER_INPUT_FORMAT_YYYY_MM_DD_HH_MM_SS = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+var SERVER_INPUT_FORMAT_DD_MM_YYYY_HH_MM = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
 var EVENT_FILTER_DATE_FORMAT = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
 var NOTIFICATION_DATE_FORMAT = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
 

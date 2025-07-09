@@ -67,6 +67,7 @@ class SellEventTicketFragment : BaseVMBindingFragment<FragmentCustomerBinding, D
             binding!!.edtPrice.setText("")
             binding!!.edtShow.text = getString(R.string.select_show)
             showId=""
+            showSuccessMessage(it.bookingDetails.toString())
         }
 
     }
@@ -82,23 +83,22 @@ class SellEventTicketFragment : BaseVMBindingFragment<FragmentCustomerBinding, D
                     showId=it.showId.toString()
                     binding!!.edtShow.text = it.title
                     dialog.dismiss()
-                    Log.e("", "setClickListener=========: ${it}", )
                 }
                 dialog.show(childFragmentManager, "")
             }
             binding!!.edtMemberPass.doOnTextChanged { text, start, before, count ->
                 val input = text.toString()
-                Log.e("", "setClickListener: ${count}", )
-                if ( input.all { it.isDigit() }) {
+                if (input.all { it.isDigit() }) {
                     val number = input.toIntOrNull()
-
                     if (number != null) {
                         if (number > 3) {
-                            val result = (number-3) * 100
+                            val result = (number-3) * event?.amount?.toInt()!!
                             binding!!.edtPrice.setText(result.toString())
                         }else{
                             binding!!.edtPrice.setText("0")
                         }
+                    }else{
+                        binding!!.edtPrice.setText("0")
                     }
                 }else{
                     binding!!.edtPrice.setText("0")

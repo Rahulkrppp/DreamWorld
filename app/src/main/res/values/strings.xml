@@ -14,7 +14,7 @@
     <string name="event">Event</string>
     <string name="upcoming_event">Upcoming Event</string>
     <string name="completed_event">Completed Event</string>
-    <string name="_1">1</string>
+    <string name="_1">0</string>
     <string name="customer_registered">Customer Registered</string>
     <string name="scan_qr">Scan QR</string>
     <string name="click_below_button_to_scan_qr_tickets">Click below button to scan QR Tickets</string>
@@ -49,7 +49,14 @@
     <string name="alert_logout">Are you sure you want to log out from the dreamWorld application?</string>
     <string name="events">Events</string>
     <string name="add_customer">Add customer</string>
-    <string name="registered_customers">"Ticket Registered"</string>
+    <string name="registered_customers">"Ticket Booked"</string>
     <string name="no_data">No Details Found</string>
     <string name="customer">Customer</string>
+    <string name="customers">Customers</string>
+    <string name="register_customer_list">Register Customer List</string>
+    <string name="please_check_your_internet_connection_and_try_again">Please check your internet connection and try again</string>
+    <string name="reset_your_account_password_using_below_fields">Reset your account password using below fields</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="change_password">Change Password</string>
+    <string name="note_the_password_should_contain_at_least_8_characters_1_digit_1_lowercase_letter_1_uppercase_letter_amp_1_special_character_including_amp_gt_lt"><![CDATA[Note: The password should contain at least 8 characters, 1 digit, 1 lowercase letter, 1 uppercase letter & 1 special character including (@!#$%^&*();\'.,/?><)]]></string>
 </resources>

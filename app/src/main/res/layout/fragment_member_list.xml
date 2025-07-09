@@ -53,11 +53,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:padding="@dimen/_1sdp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_14ssp"
                 android:text="Event Details"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -74,12 +75,13 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvEventName"
+                    android:alpha="0.3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/goldman_bold"
+                    android:fontFamily="@font/goldman_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
@@ -112,15 +114,17 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/goldman_regular"
+                    android:fontFamily="@font/monda"
                     android:includeFontPadding="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp"
+                    android:alpha="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvAddress"
                     tools:text="14 Customer Registered" />
 
                 <View
+                    android:alpha="0.6"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -135,36 +139,37 @@
                 android:id="@+id/tvMemberList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/goldman_regular"
+                android:fontFamily="@font/monda"
+                android:layout_marginVertical="@dimen/_10sdp"
                android:layout_marginStart="@dimen/_20sdp"
-                android:text="MemberList"
+                android:text="@string/customers"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/clEventDetails" />
 
-<!--            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--                android:id="@+id/srlRegisterCustomer"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tvMemberList">-->
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/srlRegisterCustomer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvMemberList">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvRegisterCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clipToPadding="false"
-                    android:layout_marginTop="@dimen/_10sdp"
                     app:layout_constraintTop_toBottomOf="@+id/tvMemberList"
                     android:overScrollMode="never"
                     android:paddingBottom="@dimen/_80sdp"
                     android:scrollbars="none" />
 
-<!--            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_no_data"

@@ -20,6 +20,9 @@ import com.app.dreamworld.ui.dashboard.DashboardViewModel
 import com.app.dreamworld.ui.eventDetails.bottom.SearchBottomSheetFragment
 import com.app.dreamworld.ui.home.HomeFragmentDirections
 import com.app.dreamworld.util.clickWithDebounce
+import com.app.dreamworld.util.extension.DISPLAY_FORMAT
+import com.app.dreamworld.util.extension.SERVER_FORMAT
+import com.app.dreamworld.util.extension.displayDate
 import com.app.dreamworld.util.loadImage
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
@@ -67,7 +70,7 @@ class EventDetailFragment :
         binding?.apply {
             eventImage.loadImage(requireActivity() , BuildConfig.BASE_URL+event?.image, catchImage = true)
             tvEventName.text=event?.title
-            tvDate.text=event?.event_date
+            tvDate.text=event?.event_date?.displayDate(SERVER_FORMAT,DISPLAY_FORMAT)
             tvEventLocation.text=event?.venue_address
         }
     }
@@ -83,8 +86,13 @@ class EventDetailFragment :
             rvSearch.clickWithDebounce {
                 val dialog = SearchBottomSheetFragment.newInstance()
                 dialog.sendClickListener = {
-                    dialog.dismiss()
-                    Log.e("", "setClickListener=========: ${it}", )
+                    if (it.isEmpty()){
+                        showErrorMessage("Please enter booking number")
+                    }else {
+                        val action = EventDetailFragmentDirections.openBookingScanTicket(it)
+                        findNavController().navigate(action)
+                        dialog.dismiss()
+                    }
                 }
                 dialog.show(childFragmentManager, "")
             }

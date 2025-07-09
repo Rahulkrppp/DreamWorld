@@ -18,5 +18,6 @@ data class Event(
     @SerializedName("person_capacity") var personCapacity: String? = null,
     @SerializedName("image") var image: String? = null,
     @SerializedName("event_status") var eventStatus: String? = null,
+    @SerializedName("amount") var amount: String? = null,
 ) : Parcelable
 

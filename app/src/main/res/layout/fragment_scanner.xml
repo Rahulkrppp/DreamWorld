@@ -128,21 +128,29 @@
             android:fontFamily="@font/goldman_bold"
             android:textSize="@dimen/_15ssp"
             android:textColor="@color/white"
-            android:text="Event List"
+            android:text="@string/register_customer_list"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sw_refresh"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_height="wrap_content">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_event_list"
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
-        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/_20sdp"
         android:layout_height="0sp"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_no_data"

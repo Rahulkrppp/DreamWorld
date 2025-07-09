@@ -18,7 +18,7 @@
             android:layout_height="@dimen/_40sdp"
             android:src="@drawable/user"
             android:text="R"
-            android:fontFamily="@font/monda"
+            android:fontFamily="@font/goldman_bold"
             android:background="@drawable/circle_img"
             android:textSize="@dimen/_25sdp"
             android:gravity="center"
@@ -32,7 +32,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight="1"
-            android:fontFamily="@font/goldman_regular"
+            android:fontFamily="@font/monda"
             android:includeFontPadding="false"
             android:ellipsize="end"
             android:lines="1"
@@ -40,7 +40,7 @@
             android:text="@string/search_by_code"
             app:layout_constraintEnd_toStartOf="@id/ivShare"
             android:textColor="@color/black"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintStart_toEndOf="@+id/ivCustomerProfile"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_weight="1"
+            android:alpha="0.5"
             android:layout_marginEnd="@dimen/_5sdp"
             app:layout_constraintEnd_toStartOf="@id/ivShare"
             android:fontFamily="@font/monda"
@@ -78,9 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_weight="1"
-            android:fontFamily="@font/monda"
+            android:alpha="0.7"
+            android:fontFamily="@font/goldman_regular"
             android:includeFontPadding="false"
             android:maxLength="12"
             android:textColor="@color/black"
@@ -88,8 +88,6 @@
             app:layout_constraintStart_toEndOf="@+id/ivCustomerProfile"
             app:layout_constraintTop_toBottomOf="@+id/tvCustomerEmail"
             />
-
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

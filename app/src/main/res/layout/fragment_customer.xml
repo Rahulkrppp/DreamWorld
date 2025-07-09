@@ -94,7 +94,7 @@
             style="@style/editTextStyleTwo"
             android:imeOptions="actionNext"
             android:hint="@string/full_name"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
         </com.google.android.material.textfield.TextInputEditText>
@@ -175,6 +175,7 @@
             android:imeOptions="actionDone"
             android:text="@string/save"
             android:textSize="@dimen/_13ssp"
+            android:maxLength="5"
             app:rippleColor="@color/white"
             android:fontFamily="@font/goldman_bold"
             android:layout_marginTop="@dimen/_10sdp"

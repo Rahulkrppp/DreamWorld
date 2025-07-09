@@ -30,7 +30,7 @@ class MemberListAdapter(
         holder.itemBinding.apply {
             tvCustomerName.text=item.customerName
             tvCustomerMobileNumber.text=item.customerMobile
-            tvCustomerEmail.text= ("Ticket Number " + item.availabeSeats)
+            tvCustomerEmail.text= (item.showName+"\n" + item.availabeSeats)
             val firstLetter = item.customerName?.firstOrNull()?.uppercaseChar()
             ivCustomerProfile.text=firstLetter.toString()
             ivShare.clickWithDebounce {

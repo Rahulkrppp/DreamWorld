@@ -27,6 +27,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val authenticationRepo: AuthenticationRepoHelper) : BaseViewModel() {
 
     var loginLiveData = SingleLiveData<DataClass>()
+    var changePasswordLiveData = SingleLiveData<DataClass>()
+    var forgotPasswordLiveData = SingleLiveData<DataClass>()
 
     /**
      * This function contains code for login api call
@@ -51,6 +53,53 @@ class LoginViewModel @Inject constructor(private val authenticationRepo: Authent
                 invalidateLoading(false)
                 errorLiveData.postValue(it)
             })} catch (e:Exception){
+                print(e)
+            }
+        }
+    }
+    /**
+     *
+     */
+    fun callChangePasswordApi(userId: String, password: String) {
+        viewModelScope.launch {
+            val param = HashMap<String,String>()
+            param["userID"] = userId
+            param["password"] = password
+
+            invalidateLoading(true)
+            try {
+                authenticationRepo.callChangePasswordApi(param, onResult = {
+                    invalidateLoading(false)
+                    changePasswordLiveData.postValue(it.data)
+                    //if (it.data?.twoFactorEnabled.toBlankString().equals("No", true)){
+                    //}
+                }, onFailure = {
+                    invalidateLoading(false)
+                    errorLiveData.postValue(it)
+                })} catch (e:Exception){
+                print(e)
+            }
+        }
+    }
+
+    /**
+     *
+     */
+    fun callForgotPasswordApi(email: String) {
+        viewModelScope.launch {
+            val param = HashMap<String,String>()
+            param["email"] = email
+
+            invalidateLoading(true)
+            try {
+                authenticationRepo.callForgotPasswordApi(param, onResult = {
+                    invalidateLoading(false)
+                    forgotPasswordLiveData.postValue(it.data)
+
+                }, onFailure = {
+                    invalidateLoading(false)
+                    errorLiveData.postValue(it)
+                })} catch (e:Exception){
                 print(e)
             }
         }

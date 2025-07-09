@@ -60,7 +60,12 @@ class EventBookingFragment :
     }
 
     override fun setClickListener() {
-
+        binding?.apply {
+            swRefresh.setOnRefreshListener {
+                swRefresh.isRefreshing=false
+                viewModel.callEventCustomerApi()
+            }
+        }
 
     }
     private fun initRecyclerView() {
